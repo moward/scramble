@@ -9,8 +9,10 @@ How to run
 1. Make sure you have JRE 7+ installed
 2. Run the following from command line:
 
-  cd ./bin/
-  java game/Game
+```Shell
+cd ./bin/
+java game/Game
+```
   
 How to play
 -----------
