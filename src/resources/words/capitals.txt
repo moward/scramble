@@ -1,0 +1,52 @@
+# All fifty states and state capitals
+# From http://en.wikipedia.org/wiki/List_of_capitals_in_the_United_States
+Alabama,Montgomery
+Alaska,Juneau
+Arizona,Phoenix
+Arkansas,LittleRock
+California,Sacramento
+Colorado,Denver
+Connecticut,Hartford
+Delaware,Dover
+Florida,Tallahassee
+Georgia,Atlanta
+Hawaii,Honolulu
+Idaho,Boise
+Illinois,Springfield
+Indiana,Indianapolis
+Iowa,DesMoines
+Kansas,Topeka
+Kentucky,Frankfort
+Louisiana,BatonRouge
+Maine,Augusta
+Maryland,Annapolis
+Massachusetts,Boston
+Michigan,Lansing
+Minnesota,SaintPaul
+Mississippi,Jackson
+Missouri,JeffersonCity
+Montana,Helena
+Nebraska,Lincoln
+Nevada,CarsonCity
+New Hampshire,Concord
+New Jersey,Trenton
+New Mexico,SantaFe
+New York,Albany
+North Carolina,Raleigh
+North Dakota,Bismarck
+Ohio,Columbus
+Oklahoma,OklahomaCity
+Oregon,Salem
+Pennsylvania,Harrisburg
+Rhode Island,Providence
+South Carolina,Columbia
+South Dakota,Pierre
+Tennessee,Nashville
+Texas,Austin
+Utah,SaltLakeCity
+Vermont,Montpelier
+Virginia,Richmond
+Washington,Olympia
+West Virginia,Charleston
+Wisconsin,Madison
+Wyoming,Cheyenne
