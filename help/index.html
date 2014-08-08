@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Scramble Help</title>
+  <meta name="author" content="Matt Howard">
+</head>
+
+<body>
+	<header>
+	<h1>Scramble Help Topics</h1>
+	<p>Information about how to play the game, the game's features, and the game's considerations.</p>
+	</header>
+	<section>
+		<h2>Contents</h2>
+		<ol>
+			<li><a href="#about">About the Game</a></li>
+			<li><a href="#howto">How to Play</a>
+			<ul>
+				<li>Goal</li>
+				<li>Keyboard Layout</li>
+				<li>Screen Layout</li>
+				<li>Game Objects</li>
+				<li>Gameplay</li>
+			</ul>
+			</li>
+			<li><a href="#playmodes">Play modes</a>
+			<ul>
+				<li>Freestyle</li>
+				<li>Quiz</li>
+			</ul>
+			</li>
+			<li><a href="#gamefeatures">Game Features</a></li>
+			<li><a href="#legal">Legal</a></li>
+		</ol>
+	</section>
+	
+	<hr/>
+	
+	<section>
+		<a id="about"><h2>About the Game</h2></a>
+		<p>This game is a Java application written by Matthew Howard for a <a href="http://www.cis.upenn.edu/~cis120/">CIS 120</a> homework assignment at the University of Pennsylvania. This original game concept is a combination of a platform game and a word game. The player either collects letters to spell English words (Freestyle) or to spell out an answer to some question (Quiz Mode).</p>
+	</section>
+	
+	<hr/>
+	
+	<section>
+		<a id="howto"><h2>How to Play</h2></a>
+		<h3>Goal</h3>
+		<p>The goal of the game is to win as many points as possible by correctly spelling and submitting words before time runs out.</p>
+		
+		<h3>Keyboard Layout</h3>
+		<table>
+			<tr><th style="width:100px;">Key</th><th style="width:200px;">Action</th></tr>
+			<tr><td>A</td><td>Move left</td></tr>
+			<tr><td>W</td><td>Jump</td></tr>
+			<tr><td>D</td><td>Move right</td></tr>
+			<tr><td>Enter</td><td>Submit word / Skip</td></tr>
+			<tr><td>P</td><td>Pause</td></tr>
+			<tr><td>F1</td><td>Help</td></tr>
+			<tr><td>Ctrl+N</td><td>New Game</td></tr>
+		</table>
+		
+		<h3>Screen Layout</h3>
+		<img src="images/screen-layout.jpg" alt="Screen Diagram">
+		<br/>* <b>Note:</b> The clue only appears in Quiz mode.
+		
+		<h3>Game Objects</h3>
+		<p>Game object include:</p>
+		<p><b>The player:</b> The player is controlled by the user. He can walk left, walk right, and jump. Additionally, he can control his motion while in mid-air. He can also collect the below game objects.</p>
+		<p><b>Letters:</b> Letters move through the screen from left to right throughout the game and can be collected by the player to spell words. The distribution of letters depends on the <a href="#playmodes">play mode</a>.</p>
+		<p><b>Erasers:</b> Erasers will erase the most recently spelled letter. Multiple erasers may be used in a row.</p>
+		
+		<h3>Gameplay</h3>
+		<p>Game play begins when the user selects a <a href="#playmodes">play mode</a>. Then he or she has 240 seconds (4 minutes) to accumulate as many points as possible by spelling words. The player spells words by collecting letters and then submitting the built words by hitting "Enter". There is no way for the player to die. However, the user may start a new game at any time either by hitting Ctrl+N or selecting "New Game" from the "Game" menu.</p>
+	</section>
+	
+	<hr/>
+	
+	<section>
+		<a id="playmodes"><h2>Play Modes</h2></a>
+		
+		<h3>Freestyle</h3>
+		<p>In freestyle, the player can try to spell out any words in the English dictionary. The game's dictionary has approximately has approximately 58,000 words. Words can be any length longer than 1.</p>
+		
+		<p><b>Scoring:</b> Each letter has its own point value inversely proportional to the square root of its frequency in the English language. More exactly, the point value is Math.ceil(Math.sqrt(1/f/13)) where f is the decimal frequency. This data comes from <a href="http://en.wikipedia.org/wiki/Letter_frequency#Relative_frequencies_of_letters_in_the_English_language">Letter frequency - Wikipedia</a>.
+		<table>
+		<tr><th>Letter</th><th>Points</th><th>Letter</th><th>Points</th></tr>
+		<tr><td>A</td><td>1</td><td>N</td><td>2</td></tr>
+		<tr><td>B</td><td>3</td><td>O</td><td>2</td></tr>
+		<tr><td>C</td><td>2</td><td>P</td><td>2</td></tr>
+		<tr><td>D</td><td>2</td><td>Q</td><td>9</td></tr>
+		<tr><td>E</td><td>1</td><td>R</td><td>2</td></tr>
+		<tr><td>F</td><td>2</td><td>S</td><td>2</td></tr>
+		<tr><td>G</td><td>2</td><td>T</td><td>1</td></tr>
+		<tr><td>H</td><td>2</td><td>U</td><td>2</td></tr>
+		<tr><td>I</td><td>2</td><td>V</td><td>3</td></tr>
+		<tr><td>J</td><td>8</td><td>W</td><td>2</td></tr>
+		<tr><td>K</td><td>4</td><td>X</td><td>8</td></tr>
+		<tr><td>L</td><td>2</td><td>Y</td><td>2</td></tr>
+		<tr><td>M</td><td>2</td><td>Z</td><td>11</td></tr>
+		</table>
+		The total point value for a word is the sum of the letter points times a length multiplier. This multiplier is worth the length of the word divided by 3 rounded up. A word not in the dictionary or a skip results in a 20 point penalty.</p>
+		
+		<p><b>Examples:</b><br/>
+		"an" is 1*(1+2)<br/>
+		"computer" is 3*(2+2+2+2+2+1+1+2) = 42</p>
+
+		<p><b>Letter distribution:</b> Letters are distributed randomly according to their frequency in the English language. In other words, each letter is the result of a weighted random. This data also comes from <a href="http://en.wikipedia.org/wiki/Letter_frequency#Relative_frequencies_of_letters_in_the_English_language">Letter frequency - Wikipedia</a>.</p>
+		
+		<h3>Quiz</h3>
+		<p>In quiz mode, the player is given questions or prompts and must spell out the answer correctly to get points. All answers must be spelled omitting spaces. The three included question packs are State Capitals, Chemical Elements, and Super Bowl winners. For State Capitals, users are prompted with a state and must spell the capital of that state without the spaces. For chemical elements, the user is given a chemical symbol (like "Ag") and must spell the element name ("silver"). For Super Bowl winners, the user is given a Super Bowl number (like "XLVII") and must spell the city (or region for the Patriots) of the winning team ("Baltimore").</p>
+		
+		<p><b>Scoring:</b> A correct answer is worth 10 points for each letter in the word. An incorrect answer or a skip results in a 10 point penalty.</p>
+
+		<p><b>Letter distribution:</b> Half of all letters are completely random, with each letter having an equal probability of appearing. The other half are letters from the answer. These letters are weighted using a piecewise function so that every word has at least a one-part chance of showing up. The length of the spelled letters is used to determine what the next correctly spelled letter would be. The next letter in the correctly spelled word has the greatest chance of showing up, with each letter surrounding it having one fewer part chance of showing up.</p>
+		
+		<p>For example, if the correct answer were "Orange" and the played spells "App", each new letter would have a half chance of being any letter in the alphabet and additionally a 1/15 chance of being a "o", 2/15 of a "r", a 3/15 of a "a", a 4/15 of a "n", a 3/15 of a "g", and a 2/16 of a "e".</p>
+	</section>
+	
+	<hr/>
+	
+	<section>
+		<a id="gamefeatures"><h2>Game Features</h2></a>
+		The following consideration and features went into making this game:
+		<ul>
+			<li><b>Real physics:</b> The code in this game uses accurate physics for acceleration due to gravity, vertical acceleration, and friction between the player and platform.</li>
+			<li><b>Graphics:</b> All of the graphics and sprites for this game were custom-made. The player is animated by four sprites, all drawn in Photoshop. The eraser and letter icons were made from scratch. Furthermore, all of the colors used on the field are based off of a popular color scheme (<a href="https://kuler.adobe.com/elianne3-color-theme-3214301/">Elianne3</a>).</li>
+			<li><b>Sound effects:</b> This game includes 5 different custom-made 8-bit sound effect made on <a href="http://www.bfxr.net/">Bfxr</a>.</li>
+			<li><b>The Dictionary class from Homework 9:</b> Yup! The Freestyle mode uses the dictionary class from Homework 9, only with a small change in how it loads the dictionary file.</li>
+			<li><b>Swing time compensation:</b> The timer provided by the Swing library is fairly inaccurate. If it runs slows or fast, the events in the game take place at the same rate, with just the framerate changing. This way, the system's speed does not effect gameplay beyond rendering quality.</li>		
+		</ul>
+	</section>
+
+	<hr/>
+	
+	<section>
+		<a id="legal"><h2>Legal</h2></a>
+		<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+		<p>It is provided on an as-is basis and you hold me harmless for any defects, mistakes, bugs, or problems upon excercising your freedoms in the above license.</p>
+	</section>
+	</body>
+</html>
