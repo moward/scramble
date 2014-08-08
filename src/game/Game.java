@@ -154,7 +154,7 @@ public class Game implements Runnable, SelectorListener {
 
 	public void launchHelp() {
 		try {
-			java.awt.Desktop.getDesktop().browse(new URI("http://moward.com/apps/scramble/help/"));
+			java.awt.Desktop.getDesktop().browse(new URI("http://moward.github.io/scramble/help/"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (URISyntaxException e) {
